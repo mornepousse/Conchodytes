@@ -501,7 +501,7 @@
 			)
 		)
 		(property ki_fp_filters "LED*5.0mm*IRGrey*")
-		(path "/00000000-0000-0000-0000-000062f81b20")
+		(path "/11111111-2222-3333-4444-000000000004/2c7fadf9-a5fa-4b6c-89d4-6b54f6f94145")
 		(sheetname "/")
 		(sheetfile "Mouse.kicad_sch")
 		(units
@@ -640,7 +640,7 @@
 				(justify mirror)
 			)
 		)
-		(path "/00000000-0000-0000-0000-000062f7695e")
+		(path "/11111111-2222-3333-4444-000000000004/daa0861a-336a-46a5-adbd-70c27c7495d0")
 		(sheetname "/")
 		(sheetfile "Mouse.kicad_sch")
 		(units
@@ -829,7 +829,7 @@
 				(justify mirror)
 			)
 		)
-		(path "/00000000-0000-0000-0000-000062f76fc9")
+		(path "/11111111-2222-3333-4444-000000000004/792600c1-3b98-4138-9834-3c83f3fb7f55")
 		(sheetname "/")
 		(sheetfile "Mouse.kicad_sch")
 		(units
@@ -1018,7 +1018,7 @@
 				(justify mirror)
 			)
 		)
-		(path "/00000000-0000-0000-0000-000062f77846")
+		(path "/11111111-2222-3333-4444-000000000004/de79b9aa-118a-43fe-8316-4789c4ecd8b5")
 		(sheetname "/")
 		(sheetfile "Mouse.kicad_sch")
 		(units
@@ -1207,7 +1207,7 @@
 				(justify mirror)
 			)
 		)
-		(path "/00000000-0000-0000-0000-000062f9c524")
+		(path "/11111111-2222-3333-4444-000000000004/1b5effbc-2f3f-4371-8eea-c500d4e161a9")
 		(sheetname "/")
 		(sheetfile "Mouse.kicad_sch")
 		(units
@@ -1364,7 +1364,7 @@
 				)
 			)
 		)
-		(path "/00000000-0000-0000-0000-0000611fd0e7")
+		(path "/11111111-2222-3333-4444-000000000004/296a4c3c-d178-4d08-8986-f4ad46687406")
 		(sheetname "/")
 		(sheetfile "Mouse.kicad_sch")
 		(units
