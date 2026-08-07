@@ -28,7 +28,7 @@
 		)
 		(uuid "11111111-2222-3333-4444-000000000001")
 		(property "Sheetname" "power"
-			(at 25.4 24.688399999999998 0)
+			(at 25.4 24.6884 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -51,7 +51,7 @@
 		)
 		(instances
 			(project "conchodytes"
-				(path "/11111111-2222-3333-4444-00000000000f"
+				(path "/7138aad8-3c5f-41d0-9987-adc2f08f0576"
 					(page "2")
 				)
 			)
@@ -85,7 +85,7 @@
 			)
 		)
 		(property "Sheetfile" "usbc.kicad_sch"
-			(at 25.4 59.096199999999996 0)
+			(at 25.4 59.0962 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -97,7 +97,7 @@
 		)
 		(instances
 			(project "conchodytes"
-				(path "/11111111-2222-3333-4444-00000000000f"
+				(path "/7138aad8-3c5f-41d0-9987-adc2f08f0576"
 					(page "3")
 				)
 			)
@@ -143,7 +143,7 @@
 		)
 		(instances
 			(project "conchodytes"
-				(path "/11111111-2222-3333-4444-00000000000f"
+				(path "/7138aad8-3c5f-41d0-9987-adc2f08f0576"
 					(page "4")
 				)
 			)
@@ -152,15 +152,6 @@
 	(sheet_instances
 		(path "/"
 			(page "1")
-		)
-		(path "/11111111-2222-3333-4444-000000000003"
-			(page "4")
-		)
-		(path "/11111111-2222-3333-4444-000000000001"
-			(page "2")
-		)
-		(path "/11111111-2222-3333-4444-000000000002"
-			(page "3")
 		)
 	)
 	(embedded_fonts no)

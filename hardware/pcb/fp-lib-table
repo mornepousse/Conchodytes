@@ -1,10 +1,7 @@
 (fp_lib_table
   (version 7)
-  (lib (name "Mouse")(type "KiCad")(uri "${KIPRJMOD}/Mouse.pretty")(options "")(descr ""))
-  (lib (name "PMW3360")(type "KiCad")(uri "${KIPRJMOD}/PMW3360.pretty")(options "")(descr ""))
+  (lib (name "Mouse")(type "KiCad")(uri "${KIPRJMOD}/Mouse.pretty")(options "")(descr "Empreintes de la coque M100"))
+  (lib (name "PMW3360")(type "KiCad")(uri "${KIPRJMOD}/PMW3360.pretty")(options "")(descr "Capteur et peripheriques souris"))
   (lib (name "key")(type "KiCad")(uri "${KIPRJMOD}/key.pretty")(options "")(descr ""))
-  (lib (name "nice-nano")(type "KiCad")(uri "${KIPRJMOD}/nice-nano.pretty")(options "")(descr ""))
-  (lib (name "MaeLid")(type "KiCad")(uri "${KIPRJMOD}/MaeLid.pretty")(options "")(descr ""))
-  (lib (name "RP2040")(type "KiCad")(uri "${KIPRJMOD}/RP2040.pretty")(options "")(descr ""))
-  (lib (name "SSD1306")(type "KiCad")(uri "${KIPRJMOD}/SSD1306.pretty")(options "")(descr ""))
+  (lib (name "MaeLid")(type "KiCad")(uri "${KIPRJMOD}/MaeLid.pretty")(options "")(descr "Modules et logos"))
 )

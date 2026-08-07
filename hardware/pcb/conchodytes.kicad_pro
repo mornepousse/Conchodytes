@@ -271,7 +271,7 @@
       "internal_id": "",
       "mfg": "",
       "mpn": "",
-      "sch_revision": "2.0"
+      "sch_revision": ""
     },
     "layer_pairs": [],
     "layer_presets": [],
@@ -779,18 +779,18 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "niphar.kicad_sch",
-        "name": "niphar",
+        "filename": "conchodytes.kicad_sch",
+        "name": "conchodytes",
         "uuid": "7138aad8-3c5f-41d0-9987-adc2f08f0576"
       }
     ],
-    "used_designators": "JP1-2,R1-73,HS1-3,Q1-4,#FLG1-8,H1-8,H15-28,P5-8,G1-2,G7-12,SW1-105,J1-12,C1-28,U1-23,D1-98,#PWR1-135",
+    "used_designators": "P5-8,G1-2,G7-12,SW1-105,J1-12,C1-28,#PWR1-135,JP1-2,R1-73,HS1-3,Q1-4,D1-98,U1-23,#FLG1-8,H1-8,H15-28",
     "variants": []
   },
   "sheets": [
     [
-      "11111111-2222-3333-4444-00000000000f",
-      "Root"
+      "7138aad8-3c5f-41d0-9987-adc2f08f0576",
+      "conchodytes"
     ],
     [
       "11111111-2222-3333-4444-000000000001",
