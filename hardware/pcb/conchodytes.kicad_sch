@@ -189,7 +189,7 @@
 		)
 		(instances
 			(project "conchodytes"
-				(path "/11111111-2222-3333-4444-00000000000f"
+				(path "/7138aad8-3c5f-41d0-9987-adc2f08f0576"
 					(page "5")
 				)
 			)
@@ -198,9 +198,6 @@
 	(sheet_instances
 		(path "/"
 			(page "1")
-		)
-		(path "/11111111-2222-3333-4444-000000000004"
-			(page "5")
 		)
 	)
 	(embedded_fonts no)
