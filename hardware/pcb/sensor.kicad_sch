@@ -1,0 +1,29 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "11111111-2222-3333-4444-000000000004")
+	(paper "A4")
+	(title_block
+		(title "Capteur, encodeur et clics")
+		(comment 1 "Positions imposees par la coque M100 — empreintes verrouillees au PCB")
+	)
+	(lib_symbols)
+	(text "A poser ici :\n\nU2  PMW3360        SPI partage avec le nRF24 (SCK_L / MOSI_L / MISO_L)\n                  + SNS_NCS (chip select propre) et SNS_MOTION (interruption)\n\nLD1 LED IR        illumination de la roue a fentes, avec sa resistance serie\nLQ1 photodetecteur double  -> ENC_A / ENC_B, avec leurs pull-ups\n\nSW1 clic gauche   -> SW_LEFT\nSW2 clic droit    -> SW_RIGHT\nSW3 clic molette  -> SW_MID\n\nGarder ces references exactes : les empreintes correspondantes sont\nverrouillees dans conchodytes.kicad_pcb aux positions de la coque."
+		(exclude_from_sim no)
+		(at 20 30 0)
+		(effects
+			(font
+				(size 1.6 1.6)
+			)
+			(justify left top)
+		)
+		(uuid "11111111-2222-3333-4444-000000000004-text")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

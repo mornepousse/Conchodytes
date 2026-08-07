@@ -149,9 +149,58 @@
 			)
 		)
 	)
+	(sheet
+		(at 25.4 86.36)
+		(size 30.48 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "11111111-2222-3333-4444-000000000004")
+		(property "Sheetname" "sensor"
+			(at 25.4 85.6484 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sensor.kicad_sch"
+			(at 25.4 99.7362 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "conchodytes"
+				(path "/11111111-2222-3333-4444-00000000000f"
+					(page "5")
+				)
+			)
+		)
+	)
 	(sheet_instances
 		(path "/"
 			(page "1")
+		)
+		(path "/11111111-2222-3333-4444-000000000004"
+			(page "5")
 		)
 	)
 	(embedded_fonts no)
