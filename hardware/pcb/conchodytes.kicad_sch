@@ -1,0 +1,167 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "11111111-2222-3333-4444-00000000000f")
+	(paper "A4")
+	(title_block
+		(title "Niphargus Mouse")
+		(company "Mae PUGIN")
+		(comment 1 "Sleeper : PCB de remplacement pour coque Logitech M100")
+		(comment 2 "ESP32-S3 + nRF24 vers le dongle KaSe, capteur PMW3360")
+	)
+	(lib_symbols)
+	(sheet
+		(at 25.4 25.4)
+		(size 30.48 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "11111111-2222-3333-4444-000000000001")
+		(property "Sheetname" "power"
+			(at 25.4 24.688399999999998 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power.kicad_sch"
+			(at 25.4 38.7762 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Mouse"
+				(path "/11111111-2222-3333-4444-00000000000f"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 45.72)
+		(size 30.48 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "11111111-2222-3333-4444-000000000002")
+		(property "Sheetname" "usbc"
+			(at 25.4 45.0084 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "usbc.kicad_sch"
+			(at 25.4 59.096199999999996 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Mouse"
+				(path "/11111111-2222-3333-4444-00000000000f"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 66.04)
+		(size 30.48 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "11111111-2222-3333-4444-000000000003")
+		(property "Sheetname" "mcu"
+			(at 25.4 65.3284 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mcu.kicad_sch"
+			(at 25.4 79.4162 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Mouse"
+				(path "/11111111-2222-3333-4444-00000000000f"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+		(path "/11111111-2222-3333-4444-000000000003"
+			(page "4")
+		)
+		(path "/11111111-2222-3333-4444-000000000001"
+			(page "2")
+		)
+		(path "/11111111-2222-3333-4444-000000000002"
+			(page "3")
+		)
+	)
+	(embedded_fonts no)
+)

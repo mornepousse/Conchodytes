@@ -1,0 +1,11 @@
+.DS_Store
+*.bak
+*.kicad_pcb-bak
+*.kicad_sch-bak
+**/gerber/*
+*.lck
+~*.lck
+*-backups/
+_autosave-*
+fp-info-cache
+*.kicad_prl
