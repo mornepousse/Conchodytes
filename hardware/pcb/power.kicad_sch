@@ -3021,7 +3021,7 @@
 		(uuid "e43fd1bf-b8cb-4130-8881-42fcf4f0af40")
 	)
 	(no_connect
-		(at 68.58 165.1)
+		(at 55.88 170.18)
 		(uuid "fe96ffd0-57f3-4853-8937-4e94e6f49a5c")
 	)
 	(wire
@@ -3096,6 +3096,16 @@
 	)
 	(wire
 		(pts
+			(xy 66.04 167.64) (xy 66.04 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2c3530bc-117e-46df-84bd-bfd20e6fa3dc")
+	)
+	(wire
+		(pts
 			(xy 34.29 69.85) (xy 34.29 87.63)
 		)
 		(stroke
@@ -3103,6 +3113,16 @@
 			(type default)
 		)
 		(uuid "2dc5acf1-2268-44d3-a433-cb9b25ca8359")
+	)
+	(wire
+		(pts
+			(xy 55.88 165.1) (xy 55.88 167.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2eee3dd9-8413-4de5-988d-ad9b1dd85270")
 	)
 	(wire
 		(pts
@@ -3173,16 +3193,6 @@
 			(type default)
 		)
 		(uuid "40a40d1c-c7ab-49f4-973f-cbc57750f8fc")
-	)
-	(wire
-		(pts
-			(xy 68.58 165.1) (xy 66.04 165.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "460213e7-8d02-4843-b067-ca48a9e0e683")
 	)
 	(wire
 		(pts
@@ -6102,7 +6112,7 @@
 	)
 	(symbol
 		(lib_id "Switch:SW_SPDT")
-		(at 60.96 167.64 0)
+		(at 60.96 167.64 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6144,7 +6154,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 60.96 175.26 0)
+			(at 60.96 160.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
