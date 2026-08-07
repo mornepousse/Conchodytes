@@ -35,8 +35,11 @@ verrouillées dans le layout.
 L'électronique reprend les blocs relus et routés du Niphargus — ESP32-S3 +
 nRF24L01+, charge TP4056 avec protection DW01A/FS8205, LDO HT7833, USB-C protégé.
 
-**État (2026-08)** — projet créé, blocs d'alimentation et USB transposés, feuille
-MCU à élaguer, capteur à câbler. Rien n'est routé.
+**État (2026-08-07)** — schéma complet et vérifié par netlist, board **routé,
+0 pad non connecté**. Le contour et les positions imposées par la coque viennent
+du fork `USB-Mouse` ; l'alimentation, la charge, l'USB et la radio sont repris
+du Niphargus. Reste à nettoyer le DRC (18 `copper_edge_clearance`) et à mesurer
+la coque pour figer le contour définitif.
 
 ---
 
@@ -64,6 +67,24 @@ Niphargus — le PCB revient alors à presque rien.
 ./scripts/check.sh --fast   # ERC vs committed baseline
 ./scripts/check.sh          # + full DRC
 ```
+
+### Bloc capteur
+
+| | |
+|---|---|
+| **PMW3360** | SPI partagé avec le nRF24 (`SCK_L`/`MOSI_L`/`MISO_L`), plus `SNS_NCS` et `SNS_MOTION` |
+| **Alimentation** | ⚠️ VDD et VDDPIX **ne sont pas en 3,3 V** — rail dédié 1,8 V par LDO. VDDIO reste en 3,3 V |
+| **Optique** | lentille **LM19-LSI**, propre au PMW3360 — celle d'origine de la M100 est faite pour le PAW3526 et ne convient pas |
+| **Molette** | encodeur **optique** : LD1 éclaire une roue à 60 fentes, LQ1 double phototransistor → `ENC_A`/`ENC_B` |
+| **Clics** | SPDT, COM à la masse, NO tiré au 3,3 V |
+
+Affectation des GPIO du S3, en évitant les broches de strapping et la PSRAM
+octale du N16R8 : `SNS_NCS` 4 · `SNS_MOTION` 5 · `ENC_A` 7 · `ENC_B` 17 ·
+`SW_LEFT` 18 · `SW_RIGHT` 19 · `SW_MID` 20.
+
+Les six empreintes imposées par la coque — SW1/SW2/SW3, LD1, LQ1, U2 — sont
+**verrouillées** dans le layout et liées à leurs symboles. Ne pas les renommer :
+le F8 les dissocierait et leurs positions seraient perdues.
 
 ## Credits
 
