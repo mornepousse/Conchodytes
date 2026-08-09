@@ -76,11 +76,27 @@ Niphargus — le PCB revient alors à presque rien.
 | **Alimentation** | ⚠️ VDD et VDDPIX **ne sont pas en 3,3 V** — rail dédié 1,8 V par LDO. VDDIO reste en 3,3 V |
 | **Optique** | lentille **LM19-LSI**, propre au PMW3360 — celle d'origine de la M100 est faite pour le PAW3526 et ne convient pas |
 | **Molette** | encodeur **optique** : LD1 éclaire une roue à 60 fentes, LQ1 double phototransistor → `ENC_A`/`ENC_B` |
-| **Clics** | SPDT, COM à la masse, NO tiré au 3,3 V |
+| **Clics** | SPDT, COM à la masse, **NO et NC** tirés chacun au 3,3 V — lire les deux contacts en parallèle supprime le rebond |
 
-Affectation des GPIO du S3, en évitant les broches de strapping et la PSRAM
-octale du N16R8 : `SNS_NCS` 4 · `SNS_MOTION` 5 · `ENC_A` 7 · `ENC_B` 17 ·
-`SW_LEFT` 18 · `SW_RIGHT` 19 · `SW_MID` 20.
+Affectation des GPIO du S3, en évitant les broches de strapping :
+
+| Signal | GPIO | Broche du module | | Signal | GPIO | Broche |
+|---|---|---|---|---|---|---|
+| `SNS_NCS` | 17 | 10 | | `SW_LEFT` | 10 | 18 |
+| `SNS_MOTION` | 18 | 11 | | `SW_RIGHT` | 11 | 19 |
+| `ENC_A` | 7 | 7 | | `SW_MID` | 12 | 20 |
+| `ENC_B` | 9 | 17 | | `SW_LEFT_NC` | 4 | 4 |
+| | | | | `SW_RIGHT_NC` | 5 | 5 |
+| | | | | `SW_MID_NC` | 6 | 6 |
+
+⚠️ Ne pas confondre **GPIO** et **numéro de broche du module** : ce tableau
+donnait auparavant les broches en les présentant comme des GPIO.
+
+Les contacts NC des trois clics sont câblés sur GPIO4/5/6, chacun avec son
+pull-up 10 k (R108-R110). Au repos NC est fermé sur COM donc bas, NO ouvert donc
+haut ; au clic ils s'inversent. **Pendant le rebond les deux sont hauts** — le
+firmware garde alors l'état précédent, ce qui élimine le double-clic sans aucun
+filtrage temporel.
 
 Les six empreintes imposées par la coque — SW1/SW2/SW3, LD1, LQ1, U2 — sont
 **verrouillées** dans le layout et liées à leurs symboles. Ne pas les renommer :
