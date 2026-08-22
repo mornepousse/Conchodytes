@@ -11,7 +11,7 @@
 
 A **sleeper mouse**: a replacement PCB for a Logitech M100 shell, keeping the
 outer appearance of a cheap office mouse while carrying a **PMW3360** sensor and
-a **wireless link to the KaSe dongle** — the same receiver as the
+a **wireless link to the [KeSp dongle](https://github.com/mornepousse/KeSp_dongle)** — the same receiver as the
 [Niphargus](https://github.com/mornepousse/Niphargus) keyboard.
 
 The shell is a fixed constraint: click switches, optical wheel encoder and sensor
@@ -25,7 +25,7 @@ ESD protection.
 
 Une **souris sleeper** : un PCB de remplacement pour coque Logitech M100, qui
 garde l'apparence d'une souris de bureau bon marché tout en embarquant un capteur
-**PMW3360** et une **liaison sans fil vers le dongle KaSe** — le même récepteur
+**PMW3360** et une **liaison sans fil vers le [dongle KeSp](https://github.com/mornepousse/KeSp_dongle)** — le même récepteur
 que le clavier [Niphargus](https://github.com/mornepousse/Niphargus).
 
 La coque est une contrainte figée : les positions des clics, de l'encodeur
