@@ -195,3 +195,66 @@ Aucune piste à couper.
    2,0 V, soit un peu haut.
 3. Penser à ce que le LDO U100 (XC6206P202, 120 mA) alimente **aussi** ces
    ~12 mA de LED, en plus des 37 mA du capteur — ça reste très large.
+
+## 7. VBAT_SENSE : passer la mesure batterie sur ADC1
+
+Le pont diviseur lui-même **ne change pas**. C'est la broche qui le reçoit qui
+est mal choisie.
+
+### Le pont est bon, on n'y touche pas
+
+```
++BATT ──[ R64 1M ]──┬── VBAT_SENSE
+                    │
+                   [ R67 1M ]   [ C21 100nF ]
+                    │            │
+                   GND          GND
+```
+
+Rapport ÷2 : 4,2 V batterie pleine → 2,1 V à l'entrée, dans la plage de l'ADC.
+Les 1 MΩ ne sont pas une étourderie mais un choix de consommation — **2,1 µA**
+de fuite permanente, contre 21 µA avec un 100 k/100 k. Pour un objet qui passe
+sa vie endormi, c'est le bon arbitrage, et **C21 (100 nF) est déjà présent** :
+le condensateur d'échantillonnage de l'ADC puise dedans et non à travers le
+1 MΩ, ce qui est exactement ce qui rend un pont haute impédance utilisable.
+
+Reste l'erreur due au courant de fuite de la broche ADC sur 500 kΩ d'impédance
+de Thévenin. Elle se rattrape par une **calibration deux points en firmware**
+(batterie pleine / batterie basse contre un voltmètre) — de toute façon
+nécessaire sur un ADC ESP32, pont basse impédance ou pas.
+
+### Ce qui change : la broche
+
+Aujourd'hui `VBAT_SENSE` arrive sur la **broche 21** du module. Datasheet
+**ESP32-S3-WROOM-1/1U, Table 3-1 *Pin Definitions*, p. 11** :
+
+```
+IO13    21    I/O/T    RTC_GPIO13, GPIO13, TOUCH13, ADC2_CH2, FSPIQ, FSPIIO7, SUBSPIQ
+```
+
+C'est donc **ADC2_CH2**. Or sur ESP32-S3 l'ADC2 est partagé avec le driver
+Wi-Fi : tant que la mesure batterie est là, **le Wi-Fi est interdit sur cette
+carte**. Ça marche aujourd'hui — la radio est un nRF24 et le firmware n'allume
+jamais le Wi-Fi — mais c'est une hypothèque posée sur toutes les évolutions
+futures, pour un gain nul.
+
+**Décision : déplacer la mesure sur ADC1 en v2**, plutôt que d'inscrire
+l'interdiction du Wi-Fi dans le marbre.
+
+| | Broche module | GPIO | Canal | |
+|---|---|---|---|---|
+| Aujourd'hui | 21 | GPIO13 | ADC2_CH2 | à quitter |
+| **Cible** | **12** | **GPIO8** | **ADC1_CH7** | libre, hors broches de strapping |
+
+`GPIO8` est aujourd'hui non connecté sur la carte, et n'est pas une broche de
+strapping. Ses autres fonctions (TOUCH8, SUBSPICS1) ne sont pas utilisées.
+
+**Alternative écartée** : broche 15 = `GPIO3` = ADC1_CH2, libre elle aussi, mais
+la même page 11 la liste comme **broche de strapping** — à éviter pour une
+entrée analogique tirée en permanence par un pont diviseur.
+
+Conséquence layout : le pont R64/R67/C21 doit être rerouté de la broche 21 vers
+la broche 12. Ce n'est pas un déplacement voisin — dans l'empreinte du module,
+la broche 21 est sur la **rangée du bas** (offset local 0,635 / 9,50) et la
+broche 12 sur la **rangée de gauche** (−8,75 / 5,71), soit ~10 mm d'écart et un
+changement de côté.
