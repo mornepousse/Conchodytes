@@ -1,0 +1,8 @@
+CONFIG_IDF_TARGET="esp32s3"
+# Console sur UART0 (GPIO43/44, connecteur J1) : l'USB natif du S3 ne
+# s'enumere pas sur cette carte, on ne compte donc pas dessus.
+CONFIG_ESP_CONSOLE_UART_DEFAULT=y
+CONFIG_ESP_CONSOLE_UART_BAUDRATE=115200
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=8192
+# Tick a 1 kHz : le defaut ESP-IDF est 100 Hz, soit 10 ms par vTaskDelay(1).
+CONFIG_FREERTOS_HZ=1000
