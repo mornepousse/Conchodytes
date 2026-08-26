@@ -1,0 +1,65 @@
+Comment,Designator,Footprint,LCSC,Quantity
+AO3407,Q2,SOT-23,C351408,1
+DW01A,U23,SOT-23-6,C351410,1
+ESP32-S3-WROOM-1,U6,ESP32-S3-WROOM-1U,C2913204,1
+FS8205,Q4,SOT-23-6,C32254,1
+HT7833,U20,SOT-89-3,C50936,1
+SS14,D52,D_SMA,C2480,1
+SW_SPDT,SW54,SW_SPDT_PCM12,C431540,1
+TP4056-42-ESOP8,U18,SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.41x3.3mm_ThermalVias,C16581,1
+USBLC6-2SC6,U54,SOT-23-6,C7519,1
+USB_C_Receptacle_USB2.0_16P,J48,USB_C_Receptacle_HRO_TYPE-C-31-M-12,C165948,1
+IR encodeur,LD1,Rot_LED,,1
+Left click,SW1,SPDT_Switch,,1
+Middle click,SW3,SPDT_Switch,,1
+Right Click,SW2,SPDT_Switch,,1
+photodetecteur,LQ1,LQ1,,1
+5k1,R92,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,,1
+1M,R67,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,,1
+820,R102,R_0603_1608Metric,,1
+10k,R107,R_0603_1608Metric,,1
+10k,R110,R_0603_1608Metric,,1
+100,R39,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,,1
+PMW3389,U2,PMW3360,,1
+100nF,C8,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,,1
+1M,R64,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,,1
+10k,R109,R_0603_1608Metric,,1
+100nF,C21,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,,1
+1uF,C103,C_0603_1608Metric,,1
+1k,R62,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,,1
+100nF,C1,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,,1
+NRF24L01_Breakout,U8,NRF24L01,,1
+100nF,C100,C_0603_1608Metric,,1
+Battery,J10,PinHeader_1x02_P2.54mm_Vertical,,1
+10uF,C11,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,,1
+10uF,C29,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,,1
+100,R70,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,,1
+1k,R73,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,,1
+100nF,C101,C_0603_1608Metric,,1
+Conn_02x03_Odd_Even,J1,PinHeader_2x03_P1.27mm_Vertical,,1
+100nF,C102,C_0603_1608Metric,,1
+100k,R60,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,,1
+100,R16,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,,1
+10k,R105,R_0603_1608Metric,,1
+1uF,C27,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,,1
+100,R18,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,,1
+16,R101,R_0603_1608Metric,,1
+LDO 2V0,U100,SOT-23,,1
+10uF,C20,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,,1
+1uF,C3,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,,1
+10k,R34,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,,1
+5k1,R90,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,,1
+10k,R108,R_0603_1608Metric,,1
+0,R104,R_0603_1608Metric,,1
+100,R30,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,,1
+100,R41,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,,1
+10k,R2,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,,1
+10k,R100,R_0603_1608Metric,,1
+LED,D49,LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder,,1
+10uF,C26,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,,1
+100,R36,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,,1
+2k4,R68,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,,1
+10uF,C24,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,,1
+10k,R106,R_0603_1608Metric,,1
+10k,R103,R_0603_1608Metric,,1
+nephargus_10mm_Cu,HS1,Niphargus_10mm_Cu,,1

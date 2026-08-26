@@ -9,3 +9,10 @@
 _autosave-*
 fp-info-cache
 *.kicad_prl
+
+# Firmware de banc ESP-IDF (bringup/) : le build et le sdkconfig genere sont
+# regenerables. Seuls les sources, le CMakeLists et sdkconfig.defaults comptent.
+bringup/build/
+bringup/sdkconfig
+bringup/sdkconfig.old
+bringup/managed_components/

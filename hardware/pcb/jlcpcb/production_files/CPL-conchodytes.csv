@@ -1,0 +1,65 @@
+Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
+C1,100nF,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,112.9,-120.6,180.0,top
+C100,100nF,C_0603_1608Metric,106.0,-115.0,0.0,top
+C101,100nF,C_0603_1608Metric,106.0,-116.5,0.0,top
+C102,100nF,C_0603_1608Metric,106.0,-113.5,0.0,top
+C103,1uF,C_0603_1608Metric,106.0,-118.0,0.0,top
+C11,10uF,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,93.1,-150.8,0.0,top
+C20,10uF,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,86.0,-125.0,-90.0,top
+C21,100nF,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,89.4,-130.4,0.0,top
+C24,10uF,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,92.1,-103.9,-90.0,top
+C26,10uF,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,99.8,-103.9,-90.0,top
+C27,1uF,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,80.4,-103.8,180.0,top
+C29,10uF,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,78.6,-113.9,-90.0,top
+C3,1uF,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,112.9,-122.5,180.0,top
+C8,100nF,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,93.1,-148.8,0.0,top
+D49,LED,LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder,78.2,-120.125,-90.0,top
+D52,SS14,D_SMA,104.9,-105.0,0.0,top
+HS1,nephargus_10mm_Cu,Niphargus_10mm_Cu,87.5,-144.5,0.0,bottom
+J1,Conn_02x03_Odd_Even,PinHeader_2x03_P1.27mm_Vertical,99.0,-150.865,90.0,top
+J10,Battery,PinHeader_1x02_P2.54mm_Vertical,79.2,-107.995,0.0,top
+J48,USB_C_Receptacle_USB2.0_16P,USB_C_Receptacle_HRO_TYPE-C-31-M-12,96.3,-74.7,0.0,top
+LD1,IR encodeur,Rot_LED,83.96965,-89.4642,-90.0,top
+LQ1,photodetecteur,LQ1,102.94345,-89.4656,0.0,top
+Q2,AO3407,SOT-23,111.6,-100.0,0.0,top
+Q4,FS8205,SOT-23-6,83.5,-111.2,0.0,top
+R100,10k,R_0603_1608Metric,106.0,-112.0,0.0,top
+R101,16,R_0603_1608Metric,87.0,-118.0,180.0,top
+R102,820,R_0603_1608Metric,84.0,-97.0,-90.0,top
+R103,10k,R_0603_1608Metric,105.75,-123.6,90.0,top
+R104,0,R_0603_1608Metric,93.0,-130.1,180.0,top
+R105,10k,R_0603_1608Metric,93.0,-131.6,180.0,top
+R106,10k,R_0603_1608Metric,93.0,-133.1,180.0,top
+R107,10k,R_0603_1608Metric,93.0,-134.6,180.0,top
+R108,10k,R_0603_1608Metric,108.75,-123.6,90.0,top
+R109,10k,R_0603_1608Metric,110.25,-123.6,90.0,top
+R110,10k,R_0603_1608Metric,107.25,-123.6,90.0,top
+R16,100,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,103.4,-147.2,-90.0,top
+R18,100,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,104.9,-147.2,-90.0,top
+R2,10k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,112.8875,-124.4,0.0,top
+R30,100,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,101.9,-147.2,-90.0,top
+R34,10k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,97.9,-147.0,-90.0,top
+R36,100,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,113.0,-147.1,-90.0,top
+R39,100,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,114.5,-147.1,-90.0,top
+R41,100,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,106.4,-147.2,-90.0,top
+R60,100k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,109.0,-99.7,-90.0,top
+R62,1k,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,81.3,-116.0,-90.0,top
+R64,1M,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,89.4,-134.3,0.0,top
+R67,1M,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,89.4,-132.3,180.0,top
+R68,2k4,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,82.3,-127.0,0.0,top
+R70,100,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,83.5,-101.5,-90.0,top
+R73,1k,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,86.0,-103.8,90.0,top
+R90,5k1,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,104.0,-77.1,-90.0,top
+R92,5k1,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,89.3,-77.2,90.0,top
+SW1,Left click,SPDT_Switch,82.110834,-81.183015,-20.0,top
+SW2,Right Click,SPDT_Switch,110.631565,-81.233815,20.0,top
+SW3,Middle click,SPDT_Switch,79.62625,-95.0,0.0,top
+SW54,SW_SPDT,SW_SPDT_PCM12,112.225,-106.7,90.0,top
+U100,LDO 2V0,SOT-23,109.9,-113.6,180.0,top
+U18,TP4056-42-ESOP8,SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.41x3.3mm_ThermalVias,81.965,-121.625,0.0,top
+U2,PMW3389,PMW3360,96.51995,-115.3678,180.0,top
+U20,HT7833,SOT-89-3,96.0,-103.8,270.0,top
+U23,DW01A,SOT-23-6,83.5,-106.9,0.0,top
+U54,USBLC6-2SC6,SOT-23-6,109.0,-117.3,180.0,bottom
+U6,ESP32-S3-WROOM-1,ESP32-S3-WROOM-1U,105.39,-135.3,-90.0,top
+U8,NRF24L01_Breakout,NRF24L01,94.0,-141.455,90.0,top
