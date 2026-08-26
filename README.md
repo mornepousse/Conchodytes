@@ -134,6 +134,45 @@ Les six empreintes imposées par la coque — SW1/SW2/SW3, LD1, LQ1, U2 — sont
 **verrouillées** dans le layout et liées à leurs symboles. Ne pas les renommer :
 le F8 les dissocierait et leurs positions seraient perdues.
 
+## Historique · History
+
+| Étape | Ce qui s'est passé |
+|---|---|
+| **REV1** | Premier tirage. Trois défauts de conception trouvés au banc, tous documentés dans `NOTES-V2.md` : `LQ1` câblé à l'envers (§1bis), `U100` — le LDO du capteur — pattes 2 et 3 croisées, et `U2` monté à 180°. |
+| **2026-08-25** | Bring-up du capteur. La puce n'est **pas** un PMW3360 mais un **PMW3389** (`Product_ID = 0x47`) : identité lue, SROM téléversé, déplacement mesuré. Rail capteur corrigé au fer, **2,01 V mesuré**. Rotation de 180° confirmée par la mesure — les deux axes inversés, biais 100 % sur 76 échantillons. |
+| **REV2.0.0** | Schéma corrigé et gerbers partis en fabrication : `LQ1` recâblé sur `+3V3`, `D100` supprimée, `VBAT_SENSE` déplacé sur ADC1, `U100` corrigé, `LD1` passée en cathode pilotée. |
+| **2026-08-26** | Firmware complet et lien radio. La souris parle au dongle KaSe sur le slot RF 2 — le code vit comme septième variante de carte dans `KeSp_firmware`, pas dans un dépôt séparé. |
+
+### Ce que la mise au point du 26 août a trouvé
+
+Quatre défauts, chacun établi par une mesure prise **aux deux extrémités du
+lien** — compteurs de la souris d'un côté, `RF_STATUS` du dongle de l'autre.
+
+| Défaut | Avant | Après |
+|---|---|---|
+| Bascule de mode SPI sous un CS déjà abaissé — bus partagé entre le capteur (mode 3) et la radio (mode 0) | 1 trame acquittée sur 738 | 693 sur 693 |
+| Scrutation du dongle à 10 ms, pour une FIFO nRF24 de 3 paquets | 3135 acceptées sur 8356 (37,5 %) | 99-100 % |
+| Déplacement des trames non acquittées **jeté** au lieu d'être réaccumulé | la moitié du geste disparaissait | distance conservée |
+| Résolution jamais écrite : la puce restait à son défaut | 5000 cpi | 1000 cpi, comme la M100 |
+
+### Ce qui reste ouvert
+
+Un tremblement d'**origine optique** que le firmware ne peut pas corriger :
+`SQUAL` mesuré entre 30 et 55 là où ~80 est attendu, et le capteur produit sur
+certaines surfaces des dérives cohérentes de ~1000 comptes en trois secondes,
+souris immobile — indiscernables d'un geste lent volontaire.
+
+Deux pistes, par ordre de coût croissant, détaillées au **§8 de `NOTES-V2.md`** :
+
+1. **`R102`** vaut 330 Ω sous 3,3 V, soit ~6,8 mA dans `LD1`, quand la M100
+   d'origine en fait passer 2,6 mA. La LED de molette tourne à près du triple de
+   son intensité prévue, en permanence, contre le capteur. **820 Ω** reproduit
+   le point de fonctionnement d'origine. Un composant.
+2. **Le montage à 180° de `U2`** échange peut-être les chemins d'illumination et
+   d'imagerie de la lentille, ce qui expliquerait l'image à la fois sombre en
+   moyenne et saturée par endroits. Si c'est le cas, la rotation d'empreinte
+   prévue en REV2 corrige le tremblement **et** le sens des axes d'un coup.
+
 ## Credits
 
 Outline and mechanical positions derive from

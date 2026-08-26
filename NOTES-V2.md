@@ -572,3 +572,124 @@ la broche 12. Ce n'est pas un déplacement voisin — dans l'empreinte du module
 la broche 21 est sur la **rangée du bas** (offset local 0,635 / 9,50) et la
 broche 12 sur la **rangée de gauche** (−8,75 / 5,71), soit ~10 mm d'écart et un
 changement de côté.
+
+## 8. Hauteur optique : la lentille de la M100 n'est pas taillée pour le PMW3389
+
+**Statut : à mesurer au banc. Rien à corriger en firmware — c'est de la mécanique.**
+
+### Ce qui a été observé
+
+Sur le montage final — coque M100 complète, lentille d'origine en place, tapis de
+souris — le capteur donne un SQUAL de **30 à 55** et un Shutter autour de **140**.
+Plus tôt dans le projet, le même capteur sur la même carte donnait **SQUAL ~80
+avec Shutter ~50** : plus d'exposition pour moins de qualité.
+
+Le symptôme utilisateur est une souris qui « bouge toute seule » au repos. Mesuré
+au banc le 2026-08-26, capteur immobile sur le tapis : six relevés sur trente
+exactement nuls, et entre eux des bouffées de +8 à +24 comptes en x, avec un biais
+directionnel constant — dx et dy toujours positifs, dans un rapport stable. Du
+bruit aléatoire s'annulerait autour de zéro ; un biais constant, non.
+
+Deux vérifications ont été faites avant d'accuser l'optique, et toutes deux
+disculpent le firmware :
+
+- **le bit MOT est bien consulté** depuis le 2026-08-26. Le burst rapatriait déjà
+  l'octet Motion (offset 0) sans le lire : les registres Delta ne portent pas un
+  déplacement nul en l'absence de mouvement, ils portent n'importe quoi. Le
+  garde-fou est en place, et la dérive persiste — le capteur DÉCLARE réellement
+  du mouvement ;
+- **la disposition du burst est bonne.** Elle avait été établie par mesure, pas
+  par une datasheet, donc l'offset SQUAL a été recoupé contre une lecture directe
+  du registre 0x07 : les deux concordent (45/45, 41/41, 46/46, 32/31). Le SQUAL
+  bas est réel, ce n'est pas un mauvais octet.
+
+### La spécification
+
+Datasheet **PMW3389DM-T3QU v1.0 (07 sep 2017), p. 15, Table 4 « Recommended
+Operating Condition »** :
+
+> *Distance from Lens Reference Plane to Tracking Surface — **Z : min 2,2 / typ
+> 2,4 / max 2,6 mm***
+
+Soit **±0,2 mm** autour de 2,4 mm. C'est serré.
+
+### Pourquoi c'est suspect ici
+
+La lentille montée est celle de la M100 d'origine, dessinée pour le **PAW3526D8**.
+Qu'elle s'emboîte mécaniquement ne dit rien sur le Z qu'elle impose au PMW3389 :
+deux capteurs de la même maison n'ont pas la même géométrie optique. Le choix de
+la coque M100 est assumé et bon (des millions d'exemplaires, encore achetables) —
+mais il ne s'étend pas automatiquement à son optique.
+
+### À faire
+
+1. **Mesurer le Z réel** : distance du plan de référence de la lentille à la
+   surface, patins posés. La comparer aux 2,2–2,6 mm.
+2. Si le Z est hors plage, deux voies : caler la lentille, ou passer à la lentille
+   **LM19-LSI** que la datasheet référence (figure 7, p. 3 ; vue éclatée figure 6,
+   p. 9) — au prix d'une découpe de coque, à arbitrer contre l'intérêt de garder
+   une pièce M100 d'origine.
+3. Ne rien conclure avant la mesure : voir le §1bis, où trois diagnostics affirmés
+   sans mesure ont coûté deux composants dessoudés.
+
+### Au passage : la résolution n'était pas réglée
+
+Sans rapport avec l'optique, trouvé le même jour. Le firmware n'écrivait jamais
+`Resolution_L`/`_H` (0x0E/0x0F) : la puce restait sur ce que le SROM lui laisse,
+soit `L=0x64 H=0x00` — 100 pas de 50 cpi, donc **5000 cpi**. La valeur se recoupe
+avec la datasheet, dont toutes les courbes de caractérisation (figures 11 et 12,
+p. 19) sont tracées « at resolution of 5000cpi ». La souris allait donc **cinq
+fois trop vite**.
+
+Réglée à **1000 cpi**, la valeur de la M100 d'origine, par `BOARD_SNS_CPI` dans
+`boards/conchodytes/board.h`. À noter : le tableau p. 20 donne `L=0x00 H=0x42`
+comme défaut de **reset**, ce que le SROM ne laisse pas en place — d'où la
+relecture systématique de la puce au démarrage plutôt qu'une confiance au tableau.
+
+### Hypothèse : le §1 et le §8 sont le même défaut
+
+**Établie le 2026-08-26 par recoupement. À vérifier mécaniquement — voir plus bas.**
+
+Les relevés optiques sont contradictoires en apparence :
+
+- le **Shutter** est passé de ~50 (relevés du 2026-08-25) à **~140** : le capteur
+  réclame plus d'exposition, donc il reçoit **moins** de lumière ;
+- et pourtant `Max_RawData` sature à **0x7F** pendant que `Min_RawData` reste à
+  **0x00** : l'image contient des points brûlés.
+
+Une image globalement sombre *et* saturée par endroits, ce n'est pas un défaut de
+quantité de lumière — c'est un défaut de **direction** : un reflet vif au lieu
+d'un éclairage rasant uniforme.
+
+Or le **§1** établit, mesure à l'appui, que `U2` est monté **à 180°**. Une
+lentille de souris n'est pas symétrique : elle porte un chemin d'**illumination**
+(côté LED, éclairage rasant de la surface) et un chemin d'**imagerie** (côté
+capteur). Tourner le capteur de 180° n'inverse pas seulement les axes — **ça
+échange ces deux chemins**.
+
+Cela expliquerait d'un seul coup le SQUAL à 30-55, la saturation locale, et le
+fait que le tremblement **empire selon la surface** (une surface brillante rend
+un reflet mal dirigé bien plus gênant qu'une surface mate).
+
+#### Ce que ça change
+
+1. La correction d'axes en firmware (`BOARD_SNS_ROT_180`, dépôt KeSp_firmware)
+   répare le **signe** mais ne peut **structurellement pas** réparer l'optique.
+   Confirmé en pratique : un filtre logiciel a été essayé le 2026-08-26 et
+   rejeté — il mangeait les gestes fins sans calmer le tremblement.
+2. La rotation d'empreinte prévue au §1 corrigerait **les deux défauts à la
+   fois**. Le §1 cesse donc d'être un simple point de confort sur le sens des
+   axes : il devient **bloquant pour la qualité de suivi**.
+3. Si l'hypothèse tient, la question ouverte du §1 — « la lentille LM19-LSI
+   accepte-t-elle la rotation dans la coque ? » — devient la question centrale
+   du projet, pas un détail de layout.
+
+#### La vérification, sans rien démonter
+
+Regarder par où la lumière de la LED entre dans la lentille, et où se trouve
+l'ouverture d'imagerie du capteur. Si les deux sont **échangés** par rapport au
+montage d'origine de la M100, l'hypothèse est confirmée. Sinon elle tombe, et la
+hauteur Z (ci-dessus) redevient la piste principale.
+
+⚠️ Tant que cette vérification n'est pas faite, **ceci reste une hypothèse**. Le
+§1bis rappelle ce que coûtent les conclusions matérielles affirmées sans mesure.
