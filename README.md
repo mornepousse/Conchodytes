@@ -32,6 +32,13 @@ To take a newer firmware: `cd firmware && git fetch --tags && git checkout vX.Y.
 then commit the submodule bump; read the firmware's release notes first (a
 board macro may have been added — the pin contract will say).
 
+## Firmware
+
+The mouse runs the [KeSp firmware](https://github.com/mornepousse/KeSp_firmware)
+(role `MOUSE`). Its board definition, pinout contract and firmware releases live
+in **[Conchodytes-firmware](https://github.com/mornepousse/Conchodytes-firmware)**;
+this repository is the hardware (PCB, notes, bring-up).
+
 ## English
 
 A **sleeper mouse**: a replacement PCB for a Logitech M100 shell, keeping the
