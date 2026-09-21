@@ -16,3 +16,5 @@ bringup/build/
 bringup/sdkconfig
 bringup/sdkconfig.old
 bringup/managed_components/
+firmware/build_*/
+firmware/managed_components/

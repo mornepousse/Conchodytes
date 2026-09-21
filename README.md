@@ -7,6 +7,31 @@
 
 ---
 
+## Firmware
+
+The mouse runs the [KeSp firmware](https://github.com/mornepousse/KeSp_firmware)
+(role `MOUSE`: PMW3389, three clicks, wheel, HID relayed to the dongle's slot 2).
+Since 2026-09-21 **its board lives here**, not in the firmware repository:
+
+- `boards/conchodytes/` — `board.h` (pinout, netlist-checked), `sdkconfig.defaults`,
+  `test_pins.c` (the pinout contract);
+- `firmware/` — the KeSp firmware as a git submodule, pinned on a release
+  (`git submodule update --init`);
+- `.github/workflows/firmware.yml` — calls the firmware's reusable workflow:
+  every push builds `conchodytes_<version>.bin` (+ `_full.bin`), a `v*` tag
+  publishes a release here.
+
+```bash
+scripts/test-pins.sh                                    # pinout contract, host, no toolchain
+cd firmware && export IDF_COMPONENT_CHECK_NEW_VERSION=0 && \
+idf.py -B build_conchodytes -DBOARD_DIR=../boards/conchodytes -DSDKCONFIG=build_conchodytes/sdkconfig build
+esptool --chip esp32s3 -p /dev/ttyACM0 write_flash 0x20000 build_conchodytes/KeSp.bin
+```
+
+To take a newer firmware: `cd firmware && git fetch --tags && git checkout vX.Y.Z`,
+then commit the submodule bump; read the firmware's release notes first (a
+board macro may have been added — the pin contract will say).
+
 ## English
 
 A **sleeper mouse**: a replacement PCB for a Logitech M100 shell, keeping the
